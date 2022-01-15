@@ -14,7 +14,7 @@ mv ./kube/do-sample-deployment.yml.out ./kube/do-sample-deployment.yml
 echo "$KUBERNETES_CLUSTER_CERTIFICATE" | base64 --decode > cert.crt
 ./kubectl \
  --kubeconfig=/dev/null \
- --server=https://localhost:6443 \
+ --server=$KUBERNETES_SERVER \
  --certificate-authority=cert.crt \
  --token=$KUBERNETES_TOKEN \
  apply -f ./kube/
